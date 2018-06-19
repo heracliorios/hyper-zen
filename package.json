@@ -1,0 +1,19 @@
+{
+  "name": "background",
+  "version": "0.0.1",
+  "description": "This is a module to manage the background of hyper.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx babel index.js --out-file dist.js"
+  },
+  "author": "Heraclio Rios",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1"
+  }
+}
