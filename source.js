@@ -10,18 +10,19 @@ const generateElementForContainer = () => {
 
 	element.setAttribute('id', 'hyper-zen-container')
 
-	element.style.position = 'absolute'
-
 	propertiesForPosition.map(property => {
 		element.style[property] = 0
 	})
 
+	element.style.position = 'absolute'
+	element.style.padding = 8
 	element.style.opacity = 0.25
 	element.style.display = 'flex'
 	element.style.flexDirection = 'row'
 	element.style.justifyContent = 'center'
 	element.style.alignItems = 'center'
 	element.style.backgroundColor = '#09364c'
+	element.style.zIndex = 0
 
 	return element
 }
@@ -44,32 +45,34 @@ const generateElementForImage = () => {
 
 export const decorateTerm = (Term, { React }) => {
 	return class extends React.Component {
-		background = () => {
-			const container = generateElementForContainer()
-			const image = generateElementForImage()
+		background = (term) => {
+			if (term) {
+				const container = generateElementForContainer()
+				const image = generateElementForImage()
 
-			container.appendChild(image)
+				container.appendChild(image)
 
-			document.getElementById('hyper').appendChild(container)
+				console.log(term);
+
+				// term.termRef.appendChild(container)
+			}
 		}
 
 		onDecorated = (term) => {
-			const {
-				onDecorated
-			} = this.props;
-
-			onDecorated && onDecorated(term);
-
-			this.background();
+			this.background(term)
 		}
 
 		render() {
-			const props = {
-				...this.props,
-				onDecorated: this.onDecorated
-			}
+			console.log('DEBUG')
 
-			return React.createElement(Term, props)
+			return null
+			// const props = {
+			// 	...this.props,
+			// 	onDecorated: this.onDecorated,
+			// 	onCursorMove: () => { }
+			// }
+
+			// return React.createElement(Term, props)
 		}
 	}
 }

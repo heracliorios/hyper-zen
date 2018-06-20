@@ -37,18 +37,19 @@ var generateElementForContainer = function generateElementForContainer() {
 
 	element.setAttribute('id', 'hyper-zen-container');
 
-	element.style.position = 'absolute';
-
 	propertiesForPosition.map(function (property) {
 		element.style[property] = 0;
 	});
 
+	element.style.position = 'absolute';
+	element.style.padding = 8;
 	element.style.opacity = 0.25;
 	element.style.display = 'flex';
 	element.style.flexDirection = 'row';
 	element.style.justifyContent = 'center';
 	element.style.alignItems = 'center';
 	element.style.backgroundColor = '#09364c';
+	element.style.zIndex = 0;
 
 	return element;
 };
@@ -86,31 +87,35 @@ var decorateTerm = exports.decorateTerm = function decorateTerm(Term, _ref) {
 				args[_key] = arguments[_key];
 			}
 
-			return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = _class2.__proto__ || Object.getPrototypeOf(_class2)).call.apply(_ref2, [this].concat(args))), _this), _this.background = function () {
-				var container = generateElementForContainer();
-				var image = generateElementForImage();
+			return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = _class2.__proto__ || Object.getPrototypeOf(_class2)).call.apply(_ref2, [this].concat(args))), _this), _this.background = function (term) {
+				if (term) {
+					var container = generateElementForContainer();
+					var image = generateElementForImage();
 
-				container.appendChild(image);
+					container.appendChild(image);
 
-				document.getElementById('hyper').appendChild(container);
+					console.log(term);
+
+					// term.termRef.appendChild(container)
+				}
 			}, _this.onDecorated = function (term) {
-				var onDecorated = _this.props.onDecorated;
-
-
-				onDecorated && onDecorated(term);
-
-				_this.background();
+				_this.background(term);
 			}, _temp), _possibleConstructorReturn(_this, _ret);
 		}
 
 		_createClass(_class2, [{
 			key: 'render',
 			value: function render() {
-				var props = _extends({}, this.props, {
-					onDecorated: this.onDecorated
-				});
+				console.log('DEBUG');
 
-				return React.createElement(Term, props);
+				return null;
+				// const props = {
+				// 	...this.props,
+				// 	onDecorated: this.onDecorated,
+				// 	onCursorMove: () => { }
+				// }
+
+				// return React.createElement(Term, props)
 			}
 		}]);
 
