@@ -1,5 +1,5 @@
 {
-  "name": "background",
+  "name": "hyper-zen",
   "version": "0.0.1",
   "description": "This is a module to manage the background of hyper.js",
   "main": "index.js",
