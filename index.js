@@ -3,6 +3,8 @@ const Color = require('Color');
 exports.decorateTerm = (Term, { React }) => {
 	return class extends React.Component {
 		onDecorated = (term) => {
+			console.log('DEBUG::TEST');
+
 			const {
 				onDecorated
 			} = this.props;

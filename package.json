@@ -2,9 +2,10 @@
   "name": "hyper-zen",
   "version": "0.0.1",
   "description": "This is a module to manage the background of hyper.js",
-  "main": "index.js",
+  "main": "dist.js",
   "scripts": {
-    "start": "babel index.js"
+    "test": "babel index.js",
+    "start": "npx babel index.js --out-file dist.js"
   },
   "author": "Heraclio Rios",
   "license": "ISC",
