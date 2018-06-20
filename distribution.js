@@ -60,9 +60,9 @@ var generateElementForImage = function generateElementForImage() {
 	element.setAttribute('id', 'hyper-zen-image');
 	element.setAttribute('src', 'data:image/gif;base64, ' + BASE_64_IMAGE);
 
-	element.style.backgroundSize = 'cover';
 	element.style.backgroundRepeat = 'no-repeat';
-	element.style.width = '100%';
+	element.style.maxWidth = '100%';
+	element.style.maxHeight = '100%';
 	element.style.imageRendering = 'pixelated';
 	element.style.pointerEvents = 'none';
 	element.style.userSelect = 'none';
@@ -94,9 +94,7 @@ var decorateTerm = exports.decorateTerm = function decorateTerm(Term, _ref) {
 
 					container.appendChild(image);
 
-					console.log(term);
-
-					// term.termRef.appendChild(container)
+					term.termRef.appendChild(container);
 				}
 			}, _this.onDecorated = function (term) {
 				_this.background(term);
@@ -106,16 +104,12 @@ var decorateTerm = exports.decorateTerm = function decorateTerm(Term, _ref) {
 		_createClass(_class2, [{
 			key: 'render',
 			value: function render() {
-				console.log('DEBUG');
+				var props = _extends({}, this.props, {
+					onDecorated: this.onDecorated,
+					onCursorMove: function onCursorMove() {}
+				});
 
-				return null;
-				// const props = {
-				// 	...this.props,
-				// 	onDecorated: this.onDecorated,
-				// 	onCursorMove: () => { }
-				// }
-
-				// return React.createElement(Term, props)
+				return React.createElement(Term, props);
 			}
 		}]);
 

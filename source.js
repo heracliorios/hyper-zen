@@ -33,9 +33,9 @@ const generateElementForImage = () => {
 	element.setAttribute('id', 'hyper-zen-image')
 	element.setAttribute('src', `data:image/gif;base64, ${BASE_64_IMAGE}`)
 
-	element.style.backgroundSize = 'cover'
 	element.style.backgroundRepeat = 'no-repeat'
-	element.style.width = '100%'
+	element.style.maxWidth = '100%'
+	element.style.maxHeight = '100%'
 	element.style.imageRendering = 'pixelated'
 	element.style.pointerEvents = 'none'
 	element.style.userSelect = 'none'
@@ -52,9 +52,7 @@ export const decorateTerm = (Term, { React }) => {
 
 				container.appendChild(image)
 
-				console.log(term);
-
-				// term.termRef.appendChild(container)
+				term.termRef.appendChild(container)
 			}
 		}
 
@@ -63,16 +61,13 @@ export const decorateTerm = (Term, { React }) => {
 		}
 
 		render() {
-			console.log('DEBUG')
+			const props = {
+				...this.props,
+				onDecorated: this.onDecorated,
+				onCursorMove: () => { }
+			}
 
-			return null
-			// const props = {
-			// 	...this.props,
-			// 	onDecorated: this.onDecorated,
-			// 	onCursorMove: () => { }
-			// }
-
-			// return React.createElement(Term, props)
+			return React.createElement(Term, props)
 		}
 	}
 }
