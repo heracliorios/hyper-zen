@@ -2,23 +2,20 @@ const Color = require('Color');
 
 exports.decorateTerm = (Term, { React }) => {
 	return class extends React.Component {
-		_onDecorated (term) {
-			const test = {
-				test: true
-			}
-			// const {
-			// 	onDecorated
-			// } = this.props;
+		onDecorated = (term) => {
+			const {
+				onDecorated
+			} = this.props;
 
 			// if (this.props.onDecorated) this.props.onDecorated(term)
 			// this.props.onDecorated && this.props.onDecorated(term);
-			console.log('DEBUG::test', ...test);
+			console.log('DEBUG::onDecorated', onDecorated);
 			console.log('DEBUG::document.body', document.body);
 		}
 
-		render () {
+		render = () => {
 			return React.createElement(Term, Object.assign({}, this.props, {
-				onDecorated: this._onDecorated
+				onDecorated: this.onDecorated
 			}))
 		}
 	}

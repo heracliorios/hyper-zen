@@ -1,8 +1,9 @@
 {
     "presets": [
-        "es2017"
+        "env"
     ],
     "plugins":[
-        "transform-class-properties"
+        "transform-class-properties",
+        "transform-runtime"
     ]
 }
