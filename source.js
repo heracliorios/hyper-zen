@@ -16,7 +16,7 @@ const generateElementForContainer = () => {
 
 	element.style.position = 'absolute'
 	element.style.padding = 8
-	element.style.opacity = 0.25
+	element.style.opacity = 0.5
 	element.style.display = 'flex'
 	element.style.flexDirection = 'row'
 	element.style.justifyContent = 'center'
